@@ -7,4 +7,4 @@ Leetcode Monthly challanges gives you a better insights for different concepts a
 
 I hope ,I will continue to do this.
 
-god bless
+god bless.
