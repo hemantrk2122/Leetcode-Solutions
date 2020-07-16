@@ -1,27 +1,26 @@
 class Solution {
-    void dfs(vector<vector<int>>& grid, int i, int j, int& perimeter){
-        grid[i][j] = 2;
-        if(i == 0 || grid[i-1][j] == 0) perimeter++;
-        if(i == grid.size() - 1 || grid[i+1][j] == 0) perimeter++;
-        if(j == 0 || grid[i][j-1] == 0) perimeter++;
-        if(j == grid[0].size()-1 || grid[i][j+1] == 0) perimeter++;
-        
-        if(i > 0 && grid[i-1][j] == 1) dfs(grid, i-1, j, perimeter);
-        if(j > 0 && grid[i][j-1] == 1) dfs(grid, i, j-1, perimeter);
-        if(i < grid.size()-1 && grid[i+1][j] == 1) dfs(grid, i+1, j, perimeter);
-        if(j < grid[0].size()-1 && grid[i][j+1] == 1) dfs(grid, i, j+1, perimeter);
-    }
 public:
-    int islandPerimeter(vector<vector<int>>& grid) {
-        int perimeter = 0;
-        for(int i = 0; i < grid.size(); ++i){
-            for(int j = 0; j < grid[0].size(); ++j)
-                if(grid[i][j] == 1) dfs(grid, i, j, perimeter);
+    vector<int> plusOne(vector<int>& a) {
+        vector<int >res;
+        int n=a.size();
+        int t=((a[n-1]+1)%10);
+        res.push_back(t);
+        int carry=((a[n-1]+1)/10);
+
+        for(int i=n-2;i>=0;i--){
+            int tr=a[i]+carry;
+            res.push_back(tr%10);
+            carry=tr/10;
+
         }
-        for(int i = 0; i < grid.size(); ++i){
-            for(int j = 0; j < grid[0].size(); ++j)
-                if(grid[i][j] == 2) grid[i][j] = 1;
+        if(carry!=0 ){
+            res.push_back(carry);
+
         }
-        return perimeter;
-    }
+        while(res.back()==0)
+        res.pop_back();
+
+        reverse(res.begin(),res.end());
+        return res;
+        }
 };
