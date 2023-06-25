@@ -8,6 +8,8 @@ public class DoublyLinkedList {
         list.push(4);
         list.push(5);
         list.printDLL();
+        list.insertAtLast(10);
+        list.printDLL();
     }
 }
 
@@ -37,11 +39,22 @@ class MyDoublyLinkedList{
 		System.out.println("null");
     }
 
-    // inserting an element at start
+    // inserting an node at start
     void push(int data){
         ListNode node = new ListNode(data);
         node.next = head;
         head.prev = node;
         head = node;
+    }
+
+    // inserting an node at last
+    void insertAtLast(int data){
+        ListNode node = new ListNode(data);
+        ListNode curr = head;
+        while(curr.next!=null){
+            curr = curr.next;
+        }
+        node.prev = curr;
+        curr.next = node;
     }
 }
