@@ -8,7 +8,7 @@ public class DoublyLinkedList {
         list.push(4);
         list.push(5);
         list.printDLL();
-        list.deletFirst();
+        list.deleteLast();
         list.printDLL();
     }
 }
@@ -79,7 +79,17 @@ class MyDoublyLinkedList{
     }
 
     // deleting first
-    void deletFirst(){
+    void deleteFirst(){
         head = head.next;
+    }
+
+    // Deleting last node
+    void deleteLast(){
+        ListNode node = head;
+        while(node.next.next!=null){
+            node = node.next;
+        }
+        node.next.prev = null;
+        node.next = null;
     }
 }
