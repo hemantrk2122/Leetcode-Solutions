@@ -4,6 +4,22 @@ package LinkedList;
 // import java.lang.*;
 // import java.io.*;
 
+class LinkedList{
+    public static void main(String args[]){
+        MyLinkedList list = new MyLinkedList(1);
+		list.push(2);
+		list.push(3);
+		list.push(4);
+		list.push(5);
+		list.push(6);
+		list.push(7);
+		list.printList();
+		list.deleteAt(5);
+		list.printList();
+		// System.out.println(list.findMiddle().data);
+    }
+}
+
 class ListNode{
     int data;
     ListNode next;
@@ -82,20 +98,13 @@ class MyLinkedList{
         }
         node.next = null;
     }
-}
 
-class LinkedList{
-    public static void main(String args[]){
-        MyLinkedList list = new MyLinkedList(1);
-		list.push(2);
-		list.push(3);
-		list.push(4);
-		list.push(5);
-		list.push(6);
-		// list.push(7);
-		list.printList();
-		list.deleteLast();
-		list.printList();
-		// System.out.println(list.findMiddle().data);
-    }
+	// Deleting intermediate elements from my LinkedList
+	void deleteAt(int data){
+		ListNode node = head;
+		while(node.next.data!=data){
+			node = node.next;
+		}
+		node.next = node.next.next;
+	}
 }
