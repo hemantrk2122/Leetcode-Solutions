@@ -38,7 +38,7 @@ class MyLinkedList{
 		System.out.println("null");
 	}
 
-    // Deleting first element from my LinkedList
+    // Deleting first element from my LinkedLists
 	void deleteFirst(){
 		head = head.next;
 	}
