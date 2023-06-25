@@ -8,7 +8,7 @@ public class DoublyLinkedList {
         list.push(4);
         list.push(5);
         list.printDLL();
-        list.insertAtMiddle(10);
+        list.deletFirst();
         list.printDLL();
     }
 }
@@ -68,7 +68,7 @@ class MyDoublyLinkedList{
         }
         return slow;
     }
-
+    // inserting at the middle
     void insertAtMiddle(int data){
         ListNode node = new ListNode(data);
         ListNode midNode = findMiddle();
@@ -76,5 +76,10 @@ class MyDoublyLinkedList{
         node.next = midNode.next;
         node.prev = midNode;
         midNode.next = node;
+    }
+
+    // deleting first
+    void deletFirst(){
+        head = head.next;
     }
 }
